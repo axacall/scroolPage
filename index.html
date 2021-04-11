@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>scroll-Page</title>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	<!--  -->
+	<div class="container">
+		<div id="page1" class="home pages">HOME</div>
+		<div id="page2" class="about pages">ABOUT</div>
+		<div id="page3" class="contact pages">CONTACT</div>
+		<!--  -->
+
+		<!--  -->
+	</div>
+	<!--  -->
+	<div class="btn">
+		<div class="ust"><span>|</span></div>
+		<div class="alt"><span>|</span></div>
+	</div>
+	<div class="mouse"><span>|</span></div>
+	<!--  -->
+	<script>
+		$(function(){
+			var i = 1;
+			$("html, body").animate({ scrollTop: $("#page1").offset().top+"px" },500);
+			$(".alt").on("click", function (e) {
+				i++;
+				if(i <= 3){
+					$(".ust").css("cursor","pointer");
+					$(".ust").css("background","#3F3B36");
+				console.log(i)
+				$("html, body").animate({ scrollTop: $("#page"+i).offset().top+"px" },500);
+			}else{
+				i = 3
+			}
+			if(i == 3){
+				$(".alt").css("cursor","none");
+				$(".alt").css("background","#1D2216");
+			}			
+			e.preventDefault();
+		});
+			$(".alt").bind("mousewheel", function (e) {
+				i++;
+				if(i <= 3){
+					$(".ust").css("cursor","pointer");
+					$(".ust").css("background","#3F3B36");
+				console.log(i)
+				$("html, body").animate({ scrollTop: $("#page"+i).offset().top+"px" },500);
+			}else{
+				i = 3
+			}
+			if(i == 3){
+				$(".alt").css("cursor","none");
+				$(".alt").css("background","#1D2216");
+			}			
+			e.preventDefault();
+		});
+			$(".ust").on("click", function (e) {
+				i--	
+				if(i >= 1){
+					$(".alt").css("cursor","pointer");
+					$(".alt").css("background","#3F3B36");
+			console.log(i)
+			$("html, body").animate({ scrollTop: $("#page"+i).offset().top+"px" },500);
+		}else{
+				i = 1
+			}
+			if(i == 1){
+				$(".ust").css("cursor","none");
+				$(".ust").css("background","#1D2216");
+			}
+			e.preventDefault();
+		});
+			$(".ust").bind("mousewheel", function (e) {
+				i--	
+				if(i >= 1){
+					$(".alt").css("cursor","pointer");
+					$(".alt").css("background","#3F3B36");
+			console.log(i)
+			$("html, body").animate({ scrollTop: $("#page"+i).offset().top+"px" },500);
+		}else{
+				i = 1
+			}
+			if(i == 1){
+				$(".ust").css("cursor","none");
+				$(".ust").css("background","#1D2216");
+			}
+			e.preventDefault();
+		});
+		})
+	</script>
+	<script src="script.js"></script>
+
+</body>
+</html>
